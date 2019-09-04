@@ -1,0 +1,30 @@
+
+<div layout="column" flex layout-wrap>
+    <md-card flex>
+        <md-card-content>
+            <div layout="row" layout-align="space-between start" layout-wrap>
+                <md-input-container flex="100" flex-gt-xs="40">
+                    <label>Select site:</label>
+                    <md-select ng-model="$ctrl.site" ng-change="$ctrl.siteChanged()">
+                        <md-option ng-repeat="site in $ctrl.sites" value="{{site}}">
+                            {{site}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-card-content>
+    </md-card>
+
+    <div layout="row" flex>
+
+        <md-card flex ng-repeat="( equipoName, equipo) in $ctrl.equipos">
+            <md-card-content>
+                <h2>{{equipoName}}</h2>
+
+                <ma-get-point-value point="equipo.power"></ma-get-point-value>
+                <h4>power: {{ equipo.power.renderedValue }}</h4>
+            </md-card-content>
+        </md-card>
+
+    </div>
+</div>

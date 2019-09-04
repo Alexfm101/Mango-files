@@ -1,0 +1,38 @@
+<div layout="row" layour-wrap>
+    <div flex="50">
+        <md-card>
+            <md-card-content>
+                <ma-map zoom="11" map-type="roadmap" flex="100" desktop-height="400px" mobile-height="250px">
+                    <marker centered="true" position="-12.95, -38.45"></marker>
+                    <marker position="-12.99, -38.49"></marker>
+                </ma-map>
+            </md-card-content>
+        </md-card>
+    </div>
+
+    <div flex="50" layout="column" >
+        <md-card>
+            <md-card-content>
+                <div layout="row" layout-align="space-between center">
+                    <div flex=""><h6 class="text-center">Sites</h6></div>
+                    <div flex=""><h6>Costumer Status</h6></div>
+                    <div flex="row" class="text-center"><h6 >PV Status</h6></div>
+                    <div flex=""><h6>Battery Status</h6></div>
+                    <div flex=""><h6>Details</h6></div>
+                </div>
+                    
+
+                    <md-divider></md-divider>
+
+                <md-list layout-align="center center">
+                    <md-list-item class="md-2-line">
+                        <div class="md-list-item-text" layout="row">
+                            <p>First Line</p>
+                            <p>Second Line</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

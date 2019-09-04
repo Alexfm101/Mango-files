@@ -1,0 +1,104 @@
+<div layout="row">
+    <div flex="20">
+        <md-card flex>
+            <md-card-content>
+                <h4>Select Site:</h4>
+                <md-input-container>
+                    <label>site-1</label>
+                    <!-- <md-select>
+                            <md-option>
+    
+                            </md-option>
+                        </md-select> -->
+                </md-input-container>
+
+            </md-card-content>
+        </md-card>
+    </div>
+
+    <div flex="80" flex-offset="60">
+
+        <div layout="row">
+            <a class="md-raised md-primary md-button md-mangoDark-theme md-ink-ripple">Overview</a>
+            <a class="md-raised md-primary md-button md-mangoDark-theme md-ink-ripple">Energy Flow</a>
+        </div>
+
+    </div>
+
+</div>
+
+<div layout="row">
+    <md-card flex="30">
+        <md-card-content>
+            <div layout="column">
+
+                <div flex="">
+                    <h4>Solar Panel</h4>
+                    <div layout="row">
+
+                        <div flex="40">
+                            <ma-svg ng-include="'/modules/mangoUI/web/img/svg/solar-panel3.svg'" flex="40"></ma-svg>
+                        </div>
+
+                        <div flex="">
+                            <div layout="column">
+                                <p>Power:</p>
+                                <p>Status:</p>
+                                <p>Temperature:</p>
+                                <p>Solar Radiation:</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div flex="">
+                    <h4>Battery</h4>
+                        <div layout="row">
+
+                            <div flex="40">
+                                <ma-svg ng-include="'/modules/mangoUI/web/img/svg/battery2.svg'" flex="40"></ma-svg>
+                            </div>
+
+                            <div flex="">
+                                <div layout="column">
+                                    <p>Power:</p>
+                                    <p>SoC:</p>
+                                </div>
+                            </div>
+
+                        </div>
+                </div>
+
+
+                <div flex="">
+                        <h4>Costumer</h4>
+                        <div layout="row">
+
+                            <div flex="40">
+                                <ma-svg ng-include="'/modules/mangoUI/web/img/svg/customer2.svg'" flex="40"></ma-svg>
+                            </div>
+
+                            <div flex="">
+                                <div layout="column">
+                                    <p>Power:</p>
+                                    <p>Voltage:</p>
+                                    <p>Current:</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </div>
+
+        </md-card-content>
+    </md-card>
+
+
+    <md-card flex="70">
+        <md-card-content>
+
+        </md-card-content>
+    </md-card>
+
+</div>

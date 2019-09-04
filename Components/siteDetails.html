@@ -7,7 +7,7 @@
                                 <!-- <h4>Select Site:</h4> -->
                                 <md-input-container flex="100">
                                     <label>select Site:</label>
-                                        <md-select ng-model="$ctrl.site">
+                                        <md-select ng-model="$ctrl.site" ng-change="$ctrl.siteChanged()">
                                             <md-option ng-repeat="site in $ctrl.sites" value="{{site}}">
                                                 {{site}}
                                             </md-option>
@@ -35,7 +35,7 @@
     <md-card flex="30">
         <md-card-content>
             <div layout="column">
-
+                
                 <div flex="">
                     <h4>Solar Panel</h4>
                     <div layout="row">
@@ -44,12 +44,16 @@
                             <ma-svg ng-include="'/modules/mangoUI/web/img/svg/solar-panel3.svg'" flex="40"></ma-svg>
                         </div>
 
+                        <ma-get-point-value point = "$ctrl.equipos.solarPanel.power"></ma-get-point-value>
+                        <ma-get-point-value point = "$ctrl.equipos.solarPanel.temp"></ma-get-point-value>
+                        <ma-get-point-value point = "$ctrl.equipos.solarPanel.solarRadiation"></ma-get-point-value>
+
                         <div flex="">
                             <div layout="column">
-                                <p>Power:</p>
-                                <p>Status:</p>
-                                <p>Temperature:</p>
-                                <p>Solar Radiation:</p>
+                                
+                                <p>Power: {{$ctrl.equipos.solarPanel.power.renderedValue}}</p>
+                                <p>Temperature:{{$ctrl.equipos.solarPanel.temp.renderedValue}}</p>
+                                <p>Solar Radiation:{{$ctrl.equipos.solarPanel.solarRadiation.renderedValue}}</p>
                             </div>
                         </div>
 
@@ -64,9 +68,11 @@
                                 <ma-svg ng-include="'/modules/mangoUI/web/img/svg/battery2.svg'" flex="40"></ma-svg>
                             </div>
 
+                            <ma-get-point-value point = "$ctrl.equipos.battery.power"></ma-get-point-value>
+
                             <div flex="">
                                 <div layout="column">
-                                    <p>Power:</p>
+                                    <p>Power:{{$ctrl.equipos.battery.power.renderedValue}}</p>
                                     <p>SoC:</p>
                                 </div>
                             </div>
@@ -84,10 +90,13 @@
                             </div>
 
                             <div flex="">
+                                <ma-get-point-value point = "$ctrl.equipos.costumer.power"></ma-get-point-value>
+                                <ma-get-point-value point = "$ctrl.equipos.costumer.current"></ma-get-point-value>
+                                <ma-get-point-value point = "$ctrl.equipos.costumer.voltage"></ma-get-point-value>
                                 <div layout="column">
-                                    <p>Power:</p>
-                                    <p>Voltage:</p>
-                                    <p>Current:</p>
+                                    <p>Power:{{$ctrl.equipos.costumer.power.renderedValue}}</p>
+                                    <p>Voltage:{{$ctrl.equipos.costumer.voltage.renderedValue}}</p>
+                                    <p>Current:{{$ctrl.equipos.costumer.current.renderedValue}}</p>
                                 </div>
                             </div>
 
@@ -101,7 +110,14 @@
 
     <md-card flex="70">
         <md-card-content>
-
+                <ma-get-point-value point = "$ctrl.equipos.costumer.power"></ma-get-point-value>
+                <ma-serial-chart style="height: 480px; width: 100%"
+                series-1-values="$ctrl.equipos.costumer.power"
+                series-1-point="$ctrl.equipos.costumer.power"
+                series-1-title="Temperature"
+  
+                legend="true">
+            </ma-serial-chart>
         </md-card-content>
     </md-card>
 

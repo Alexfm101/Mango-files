@@ -2,12 +2,21 @@ define(['angular', 'require'], function (angular, require) {
 
     'use strict';
 
-    siteDetailsController.$inject = ['$scope'];
+    siteDetailsController.$inject = ['$scope','maDataPointTags','maPoint'];
 
 
-    function siteDetailsController($scope) {
+    function siteDetailsController($scope,maDataPointTags,maPoint) {
         this.$onInit = () => {
-            this.detail = 'site details';
+            this.getSites();
+        };
+
+        this.getSites = () => {
+            return maDataPointTags
+            .buildQuery('sites')
+            .query()
+            .then(values => {   
+                this.sites = values.sort();
+            });
         };
     }
 

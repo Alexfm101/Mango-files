@@ -47,21 +47,35 @@ define(['angular', 'require',], function (angular, require) {
         };
 
         this.orderPoints = (points) => {
-            this.equipoName.forEach( equipo => {
-                this.status[equipo] = {
-                    'status': this.pointFilter(points,'status',equipo),
-                };
+            this.sitios = {};
+            this.sites.forEach(sitio => {
+                this.sitios[sitio] = {
+                    'battery': this.pointFilter(points,'status','battery'),
+                    'solarPanel': this.pointFilter(points,'status','solarPanel') ,
+                    'costumer': this.pointFilter(points,'status','costumer'),
+                    
+                }
             });
-
-            console.log(this.status);
-
+            console.log(this.sitios)
         };
-
+        
         this.pointFilter = (points,name,equipo) => {
+        
             return points.filter(point => {
                 return point.name == name && point.tags.equipo == equipo;
             })[0];
         };
+
+        
+        // this.pointFilterSitio = (points,name) => {};
+
+        // this.equipoName.forEach( equipo => {
+        //     this.status[equipo] = {
+        //         'status': this.pointFilter(points,'status',equipo),
+        //     };
+        // });
+
+
 
 
 }

@@ -13,52 +13,77 @@
     <div flex="50" layout="column" >
         <md-card>
             <md-card-content>
-                <div layout="row" layout-align="space-between center">
-                    <div flex=""><h6 class="text-center">Sites</h6></div>
-                    <div flex=""><h6>Costumer Status</h6></div>
-                    <div flex="row" class="text-center"><h6 >PV Status</h6></div>
-                    <div flex=""><h6>Battery Status</h6></div>
-                    <div flex=""><h6>Details</h6></div>
-                </div>
                     
-
-                    <md-divider></md-divider>
-
-                <ma-get-point-value point = "$ctrl.status.solarPanel.status">   
-                </ma-get-point-value>
-
-                <ma-get-point-value point = "$ctrl.status.battery.status"></ma-get-point-value>
-
-                <ma-get-point-value point = "$ctrl.status.costumer.status"></ma-get-point-value>
-
-                                                    
-                <div layout = "row">
-
-                    <div flex = "20">
-                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.solarPanel.status.value ? 'green' : 'red'}"></div>
-                    </div>
-
-                    <div flex = "20">
-                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.costumer.status.value ? 'green' : 'red'}"></div>
-                    </div>
-
-                    <div flex = "20">
-                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.battery.status.value ? 'green' : 'red'}"></div>
-                    </div>
-
-                    <div flex = "5" layout = "column" >
-
-                            <a flex = "70" href="/ui/SolarSystem/FlowChart">
-                                 <ma-svg ng-include="'/modules/mangoUI/web/img/svg/flow-chart.svg'"></ma-svg>
-                            </a>
-
-                            <a flex = "" href="/ui/SolarSystem/SiteDetails">
-                                    <ma-svg ng-include="'/modules/mangoUI/web/img/svg/graphcs.svg'"></ma-svg>
-                            </a>
-                    </div>
+                <md-table-container flex>
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column>Sites</th>
+                                    <th md-column>Costumer Status</th>
+                                    <th md-column>PV Status</th>
+                                    <th md-column>Battery Status</th>
+                                    <th md-column>Details</th>
+                                </tr>
+                            </thead>
                     
+                            <tbody >
+                                <tr ng-repeat = "(sites, sitio) in $ctrl.sitios">
+                                    
+                                    <td md-cell>
+                                        <div flex ="30">
+                                             {{sites}}
+                                        </div>
+                                    </td>
+                                    <td md-cell>
 
+                                            <ma-get-point-value point = "sitio.battery">   
+                                                </ma-get-point-value>
+
+                                        <div>
+                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.battery.value ? 'green' : 'red'}"></div>
+                                        </div>
+
+                                    </td>
+                    
+                                    <td md-cell>
+
+                                            <ma-get-point-value point = "sitio.costumer"></ma-get-point-value>
+
+                                        <div>
+                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.costumer.value ? 'green' : 'red'}"></div>
+                                        </div>
+                                    </td>
+                    
+                                    <td md-cell>
+
+                                            <ma-get-point-value point = "sitio.solarPanel"></ma-get-point-value>
+
+                                        <div>
+                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.solarPanel.value ? 'green' : 'red'}"></div>
+                                        </div>
+                                    </td>
+                    
+                                    <td md-cell>
+                                        <div layout = "column">
+
+                                                <a href="/ui/SolarSystem/FlowChart">
+                                                    <ma-svg  flex ="70" ng-include="'/modules/mangoUI/web/img/svg/flow-chart.svg'"></ma-svg>
+                                                </a>
+
+                                                <a  href="/ui/SolarSystem/SiteDetails">
+                                                    <ma-svg flex = "70"  ng-include="'/modules/mangoUI/web/img/svg/graphcs.svg'"></ma-svg>
+                                                </a>
+
+
+                                        </div>
+                                    </td>
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    </md-table-container>
             </md-card-content>
         </md-card>
     </div>
 </div>
+

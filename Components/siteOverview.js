@@ -47,12 +47,13 @@ define(['angular', 'require',], function (angular, require) {
         };
 
         this.orderPoints = (points) => {
-            
             this.equipoName.forEach( equipo => {
                 this.status[equipo] = {
                     'status': this.pointFilter(points,'status',equipo),
                 };
             });
+
+            console.log(this.status);
 
         };
 

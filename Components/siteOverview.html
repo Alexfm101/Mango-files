@@ -24,14 +24,40 @@
 
                     <md-divider></md-divider>
 
-                <md-list layout-align="center center">
-                    <md-list-item class="md-2-line">
-                        <div class="md-list-item-text" layout="row">
-                            <p>First Line</p>
-                            <p>Second Line</p>
-                        </div>
-                    </md-list-item>
-                </md-list>
+                <ma-get-point-value point = "$ctrl.status.solarPanel.status">   
+                </ma-get-point-value>
+
+                <ma-get-point-value point = "$ctrl.status.battery.status"></ma-get-point-value>
+
+                <ma-get-point-value point = "$ctrl.status.costumer.status"></ma-get-point-value>
+
+                                                    
+                <div layout = "row">
+
+                    <div flex = "20">
+                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.solarPanel.status.value ? 'green' : 'red'}"></div>
+                    </div>
+
+                    <div flex = "20">
+                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.costumer.status.value ? 'green' : 'red'}"></div>
+                    </div>
+
+                    <div flex = "20">
+                        <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': $ctrl.status.battery.status.value ? 'green' : 'red'}"></div>
+                    </div>
+
+                    <div flex = "5" layout = "column" >
+
+                            <a flex = "70" href="/ui/SolarSystem/FlowChart">
+                                 <ma-svg ng-include="'/modules/mangoUI/web/img/svg/flow-chart.svg'"></ma-svg>
+                            </a>
+
+                            <a flex = "" href="/ui/SolarSystem/SiteDetails">
+                                    <ma-svg ng-include="'/modules/mangoUI/web/img/svg/graphcs.svg'"></ma-svg>
+                            </a>
+                    </div>
+                    
+
             </md-card-content>
         </md-card>
     </div>

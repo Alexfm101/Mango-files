@@ -52,8 +52,8 @@
                             <div layout="column">
                                 
                                 <p>Power: {{$ctrl.equipos.solarPanel.power.renderedValue}}</p>
-                                <p>Temperature:{{$ctrl.equipos.solarPanel.temp.renderedValue}}</p>
-                                <p>Solar Radiation:{{$ctrl.equipos.solarPanel.solarRadiation.renderedValue}}</p>
+                                <p>Temperature: {{$ctrl.equipos.solarPanel.temp.renderedValue}}</p>
+                                <p>Radiation:   {{$ctrl.equipos.solarPanel.solarRadiation.renderedValue}}</p>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
 
                             <div flex="">
                                 <div layout="column">
-                                    <p>Power:{{$ctrl.equipos.battery.power.renderedValue}}</p>
+                                    <p>Power: {{$ctrl.equipos.battery.power.renderedValue}}</p>
                                     <p>SoC:</p>
                                 </div>
                             </div>
@@ -94,9 +94,9 @@
                                 <ma-get-point-value point = "$ctrl.equipos.costumer.current"></ma-get-point-value>
                                 <ma-get-point-value point = "$ctrl.equipos.costumer.voltage"></ma-get-point-value>
                                 <div layout="column">
-                                    <p>Power:{{$ctrl.equipos.costumer.power.renderedValue}}</p>
-                                    <p>Voltage:{{$ctrl.equipos.costumer.voltage.renderedValue}}</p>
-                                    <p>Current:{{$ctrl.equipos.costumer.current.renderedValue}}</p>
+                                    <p>Power: {{$ctrl.equipos.costumer.power.renderedValue}}</p>
+                                    <p>Voltage: {{$ctrl.equipos.costumer.voltage.renderedValue}}</p>
+                                    <p>Current: {{$ctrl.equipos.costumer.current.renderedValue}}</p>
                                 </div>
                             </div>
 
@@ -110,11 +110,115 @@
 
     <md-card flex="70">
         <md-card-content>
-                <ma-get-point-value point = "$ctrl.equipos.costumer.power"></ma-get-point-value>
+            <!-- solar panel -->
+                <ma-point-values 
+                point="$ctrl.equipos.solarPanel.power" 
+                values="$ctrl.equipos.solarPanel.powerValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+                <ma-point-values
+                point="$ctrl.equipos.solarPanel.temp" 
+                values="$ctrl.equipos.solarPanel.tempValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+                <ma-point-values
+                point="$ctrl.equipos.solarPanel.solarRadiation" 
+                values="$ctrl.equipos.solarPanel.solarRadiationValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+            <!-- battery -->
+                <ma-point-values
+                point="$ctrl.equipos.battery.power" 
+                values="$ctrl.equipos.battery.powerValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+                <ma-point-values
+                point="$ctrl.equipos.battery.soC" 
+                values="$ctrl.equipos.battery.soCValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+            <!-- costumer -->
+                <ma-point-values
+                point="$ctrl.equipos.costumer.power" 
+                values="$ctrl.equipos.costumer.powerValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+                <ma-point-values
+                point="$ctrl.equipos.costumer.voltage" 
+                values="$ctrl.equipos.costumer.voltageValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
+                <ma-point-values
+                point="$ctrl.equipos.costumer.current" 
+                values="$ctrl.equipos.costumer.currentValues" 
+                from="$ctrl.maUiDateBar.from" 
+                to="$ctrl.maUiDateBar.to" 
+                rollup="{{$ctrl.maUiDateBar.rollupType}}" 
+                rollup-interval="{{$ctrl.maUiDateBar.rollupIntervals}} {{$ctrl.maUiDateBar.rollupIntervalPeriod}}"
+                ></ma-point-values>
+
                 <ma-serial-chart style="height: 480px; width: 100%"
-                series-1-values="$ctrl.equipos.costumer.power"
+
+
+                series-1-values="$ctrl.equipos.solarPanel.powerValues"
                 series-1-point="$ctrl.equipos.costumer.power"
-                series-1-title="Temperature"
+                series-1-title=" SP-Power"
+  
+                series-2-values="$ctrl.equipos.solarPanel.tempValues"
+                series-2-point="$ctrl.equipos.solarPanel.temp"
+                series-2-title="SP-Temperature"
+  
+                series-3-values="$ctrl.equipos.solarPanel.solarRadiationValues"
+                series-3-point="$ctrl.equipos.solarPanel.solarRadiation"
+                series-3-title="Solar Radiation"
+  
+                series-4-values="$ctrl.equipos.battery.powerValues"
+                series-4-point="$ctrl.equipos.battery.power"
+                series-4-title="Battery Power"
+  
+                series-5-values="$ctrl.equipos.battery.soCValues"
+                series-5-point="$ctrl.equipos.battery.soC"
+                series-5-title="Battery SoC"
+  
+                series-6-values="$ctrl.equipos.costumer.powerValues"
+                series-6-point="$ctrl.equipos.costumer.power"
+                series-6-title="costumer Power"
+
+                series-7-values="$ctrl.equipos.costumer.voltageValues"
+                series-7-point="$ctrl.equipos.costumer.voltage"
+                series-7-title="costumer voltage"
+
+                series-8-values="$ctrl.equipos.costumer.currentValues"
+                series-8-point="$ctrl.equipos.costumer.current"
+                series-8-title="costumer current"
   
                 legend="true">
             </ma-serial-chart>

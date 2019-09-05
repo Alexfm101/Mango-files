@@ -2,11 +2,12 @@ define(['angular', 'require'], function (angular, require) {
 
     'use strict';
 
-    siteDetailsController.$inject = ['$scope','maDataPointTags','maPoint','$state','$stateParams'];
+    siteDetailsController.$inject = ['$scope','maDataPointTags','maPoint','$state','$stateParams','maUiDateBar'];
 
 
-    function siteDetailsController($scope,maDataPointTags,maPoint,$state,$stateParams) {
+    function siteDetailsController($scope,maDataPointTags,maPoint,$state,$stateParams,maUiDateBar) {
         this.$onInit = () => {
+            this.maUiDateBar = maUiDateBar;
             this.refreshSite();
         };
 
@@ -83,6 +84,7 @@ define(['angular', 'require'], function (angular, require) {
                     'solarRadiation': this.filterBySiteAndEquipo(points, 'solarRadiation', equipo),
                     'voltage': this.filterBySiteAndEquipo(points, 'voltage', equipo),
                     'current': this.filterBySiteAndEquipo(points, 'current', equipo),
+                    'soC':this.filterBySiteAndEquipo(points,'soC',equipo)
                 };
     
             });

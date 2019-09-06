@@ -40,7 +40,12 @@
                                                 </ma-get-point-value>
 
                                         <div>
-                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.battery.value ? 'green' : 'red'}"></div>
+                                            <!-- <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.battery.value ? 'green' : 'red'}"></div> -->
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/warning.svg" ng-if="!sitio.battery.value"></md-icon>
+
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/checked.svg" ng-if="sitio.battery.value"></md-icon>
+                                            
+
                                         </div>
 
                                     </td>
@@ -50,7 +55,10 @@
                                             <ma-get-point-value point = "sitio.costumer"></ma-get-point-value>
 
                                         <div>
-                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.costumer.value ? 'green' : 'red'}"></div>
+                                            <!-- <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.costumer.value ? 'green' : 'red'}"></div> -->
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/warning.svg" ng-if="!sitio.costumer.value"></md-icon>
+
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/checked.svg" ng-if="sitio.costumer.value"></md-icon>
                                         </div>
                                     </td>
                     
@@ -59,7 +67,11 @@
                                             <ma-get-point-value point = "sitio.solarPanel"></ma-get-point-value>
 
                                         <div>
-                                            <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.solarPanel.value ? 'green' : 'red'}"></div>
+                                            <!-- <div class="ma-led" ng-class="{'ma-throb-opacity': throb}" ng-style="{'background-color': sitio.solarPanel.value ? 'green' : 'red'}"></div> -->
+
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/warning.svg" ng-if="!sitio.solarPanel.value"></md-icon>
+
+                                            <md-icon md-svg-src ="/rest/v2/file-stores/public/mango-files/svg/checked.svg" ng-if="sitio.solarPanel.value"></md-icon>
                                         </div>
                                     </td>
                     
@@ -67,11 +79,11 @@
                                         <div layout = "column">
 
                                                 <a href="/ui/SolarSystem/FlowChart">
-                                                    <ma-svg  flex ="70" ng-include="'/modules/mangoUI/web/img/svg/flow-chart.svg'"></ma-svg>
+                                                    <md-icon md-svg-src="/rest/v2/file-stores/public/mango-files/svg/flow-chart.svg"></md-icon>
                                                 </a>
 
-                                                <a  href="/ui/SolarSystem/SiteDetails">
-                                                    <ma-svg flex = "70"  ng-include="'/modules/mangoUI/web/img/svg/graphcs.svg'"></ma-svg>
+                                                <a href="/ui/SolarSystem/SiteDetails">
+                                                    <md-icon md-svg-src="/rest/v2/file-stores/public/mango-files/svg/graphcs.svg"></md-icon>
                                                 </a>
 
 

@@ -8,7 +8,7 @@
                         <!-- <h4>Select Site:</h4> -->
                         <md-input-container flex="100">
                             <label>select Site:</label>
-                                <md-select ng-model="$ctrl.site">
+                                <md-select ng-model="$ctrl.site" ng-change="$ctrl.siteChanged()">
                                     <md-option ng-repeat="site in $ctrl.sites" value="{{site}}">
                                         {{site}}
                                     </md-option>
@@ -35,5 +35,29 @@
 </div>
 
 <div>
-    <ma-svg ng-include="'/modules/mangoUI/web/img/svg/intento-2.svg'"></ma-svg>
+
+        <ma-get-point-value point ="$ctrl.equipos.solarPanel.power"></ma-get-point-value>
+
+        <ma-get-point-value point ="$ctrl.equipos.solarPanel.temp"></ma-get-point-value>
+
+        <ma-get-point-value point ="$ctrl.equipos.battery.power"></ma-get-point-value>
+
+        <ma-get-point-value point ="$ctrl.equipos.costumer.power"></ma-get-point-value>
+
+    <ma-svg ng-include="'/rest/v2/file-stores/public/mango-files/svg/intento-2.svg'">
+
+        <!-- solarPanel -->
+        <div ma-selector="#solarPanelPowerValue"ng-bind="$ctrl.equipos.solarPanel.power.renderedValue"></div>
+        
+        <div ma-selector="#solarPanelTempValue" ng-bind="$ctrl.equipos.solarPanel.temp.renderedValue"></div>
+
+        <!-- battery-->
+        <div ma-selector="#batteryPowerValue" ng-bind="$ctrl.equipos.battery.power.renderedValue"></div>
+        
+        <!-- costumer -->
+        <div ma-selector="#costumerPowerValue" ng-bind="$ctrl.equipos.costumer.power.renderedValue"></div>
+        
+
+    </ma-svg>
 </div>
+

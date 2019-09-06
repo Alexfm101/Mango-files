@@ -27,22 +27,22 @@ var mainModule = angular.module('userModule', ['maUiApp']);
                 weight: 996,
             },
 
-            {
-                name: 'ui.SolarSystem.helloWorld',
-                url: '/helloWorld',
-                template: '<hello-world></hello-world>',
-                menuIcon: 'map',
-                menuText: 'hello world',
-                weight: 997,
-                params: {
-                    noPadding: false,
-                    hideFooter: false,
-                },
-            },
+            // {
+            //     name: 'ui.SolarSystem.helloWorld',
+            //     url: '/helloWorld',
+            //     template: '<hello-world></hello-world>',
+            //     menuIcon: 'map',
+            //     menuText: 'hello world',
+            //     weight: 997,
+            //     params: {
+            //         noPadding: false,
+            //         hideFooter: false,
+            //     },
+            // },
 
             {
                 name: 'ui.SolarSystem.SitesOverview',
-                url: '/SitesOverview',
+                url: '/SitesOverview?site=',
                 template: '<site-overview></site-overview>',
                 menuIcon: 'map',
                 menuText: 'Sites Overview',
@@ -86,20 +86,20 @@ var mainModule = angular.module('userModule', ['maUiApp']);
             },
 
             
-            {
-                name: 'ui.SolarSystem.SitesConfiguration',
-                url: '/SitesConfiguration',
-                template: '<site-config></site-config>',
-                menuIcon: 'storage',
-                menuText: 'Sites Configuration',
-                weight: 997,
-                params: {
-                    noPadding: false,
-                    hideFooter: false,
-                },
+            // {
+            //     name: 'ui.SolarSystem.SitesConfiguration',
+            //     url: '/SitesConfiguration',
+            //     template: '<site-config></site-config>',
+            //     menuIcon: 'storage',
+            //     menuText: 'Sites Configuration',
+            //     weight: 997,
+            //     params: {
+            //         noPadding: false,
+            //         hideFooter: false,
+            //     },
                 
                 
-            },
+            // },
 
         ]);
     }]);

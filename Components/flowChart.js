@@ -87,10 +87,16 @@ define(['angular', 'require'], function (angular, require) {
             
             this.equipos[equipo] = {
                 'power': this.filterBySiteAndEquipo(points, 'power', equipo),
-                'temp': this.filterBySiteAndEquipo(points,'temp',equipo)
+                'temp': this.filterBySiteAndEquipo(points,'temp',equipo),
+                'soc': this.filterBySiteAndEquipo(points,'soc',equipo),
+                'energy': this.filterBySiteAndEquipo(points,'energy',equipo)
+
+
                 
                 
             };
+
+            console.log(this.equipos)
 
         });
 

@@ -44,6 +44,10 @@
 
         <ma-get-point-value point ="$ctrl.equipos.costumer.power"></ma-get-point-value>
 
+        <ma-get-point-value point ="$ctrl.equipos.costumer.energy"></ma-get-point-value>
+
+        <ma-get-point-value point ="$ctrl.equipos.battery.soc"></ma-get-point-value>
+
     <ma-svg ng-include="'/rest/v2/file-stores/public/mango-files/svg/intento-2.svg'">
 
         <!-- solarPanel -->
@@ -53,9 +57,15 @@
 
         <!-- battery-->
         <div ma-selector="#batteryPowerValue" ng-bind="$ctrl.equipos.battery.power.renderedValue"></div>
-        
+
+        <div ma-selector="#batterySocValue" ng-bind="$ctrl.equipos.battery.soc.renderedValue"></div>
+
         <!-- costumer -->
         <div ma-selector="#costumerPowerValue" ng-bind="$ctrl.equipos.costumer.power.renderedValue"></div>
+        
+        <div ma-selector="#costumerEnergyValue" ng-bind="$ctrl.equipos.costumer.energy.renderedValue"></div>
+        
+        
         
 
     </ma-svg>
